@@ -540,7 +540,61 @@ GRAMMAR:
 - Sentence case for any headings
 
 HASHTAGS:
-Mix of #JacksCrackers, #NHMade, #NewHampshire, #shoplocal, #smallbatch, #crackers, #charcuterie and flavor-specific or occasion-specific tags. 8–12 per post.`;
+Mix of #JacksCrackers, #NHMade, #NewHampshire, #shoplocal, #smallbatch, #crackers, #charcuterie and flavor-specific or occasion-specific tags. 8–12 per post.
+
+---
+CONTENT FRAMEWORKS BY POST TYPE
+---
+Each post type has a proven structural approach. Follow these frameworks — they are not suggestions, they are the execution standard.
+
+PRODUCT SHOWCASE — "Clarity as positioning"
+The goal: make one flavor immediately understandable as a specific choice for a specific moment.
+Structure: (1) Name the flavor and its single most distinctive quality. (2) Name exactly what to put on it — be specific (a cheese type, a condiment, an occasion), not generic. (3) One sensory detail that makes the pairing make sense. (4) Optional: the proof point (32 bags, batch number, Keene NH).
+Example approach: "Lavender Rosemary is your brie cracker. The floral note is real but quiet — it complements without competing. Pair it with something creamy and a drizzle of honey, and the board does the rest."
+Do NOT open with "Introducing" or "Meet" or "Have you tried." Start with the flavor name or a direct sensory statement.
+
+BEHIND THE SCENES — "Specific constraint as proof"
+The goal: one true, specific detail that makes the small-batch claim feel real rather than marketing language.
+Structure: (1) Lead with the number or constraint — 32 bags, a batch number, the hours it takes. (2) Describe what that constraint means in practice. (3) Optional: a quiet observation about why that constraint is actually a feature.
+The proof point is the story. Never open with "We believe" or "We're passionate about." Open with the fact.
+Example approach: "32 bags. That's the whole batch for Buttermilk Bacon this run. Bag 14 is going to Bedford Market on Tuesday. The rest are at jackscrackers.com."
+Batch numbers and bag numbers (e.g. Batch 118 · Bag 16/34) are on every label — reference them when it serves the post.
+
+MARKET DAY — "The maker note"
+The goal: a direct, personal announcement that sounds like a person, not a brand.
+Structure: (1) The specific market, day, and time — no vagueness. (2) One or two flavors to reach for — not a full list. (3) One reason to show up in person that you can't get online (samples, the chance to ask questions, seeing the batch number on the bag).
+Keep it short. Three to four sentences maximum. This is not a promotional blast — it's a note from someone who will be there.
+Example approach: "Bedford Farmers Market this Tuesday, 3–6pm. We'll have Lavender Rosemary and Spicy Chocolate Mint — bring someone who thinks they don't like chocolate in a cracker. Samples are out."
+Never list all 10 flavors. Never say "wide variety" or "something for everyone."
+
+SERVING SUGGESTION — "Set the scene, earn the product"
+The goal: make the reader picture a specific moment, then show where the cracker fits — without announcing it.
+Structure: (1) Set a scene in one or two sentences — time of day, what's happening, who's there. (2) Introduce the cracker as the natural thing you'd reach for in that moment. (3) One specific sensory or practical detail that justifies it. (4) Optional: a quiet CTA or the tagline.
+The cracker should feel like a discovery the reader makes, not a product being pushed at them.
+Example approach: "It's 6pm. The wine is open and the board is almost ready. This is the part most boards get wrong — reach for Cracked Pepper & Sage. It holds up under a generous smear of aged cheddar without going soft. That matters."
+Never open with "Perfect for..." or "Great for entertaining." Start with the moment.
+
+WHOLESALE PARTNER — "The independent alternative" (only use when Kevin has entered a wholesale account name in context fields)
+The goal: celebrate the account in a way that reinforces why independent specialty retailers are the right home for Jack's.
+Structure: (1) Name the account and give it one specific, true compliment (not "amazing" — what do they actually do well?). (2) Connect what they do to what Jack's is — the pairing should make sense. (3) One practical detail for customers (where to find it, which flavors they carry if Kevin has specified).
+Never invent details about the account. Only use what Kevin has entered in context fields.
+
+SEASONAL / EVENT — "Urgency without discounting"
+The goal: create genuine reason to act now based on timing or scarcity — never price.
+Structure: (1) Name the specific date or window — how many weeks until season ends, the specific event date. (2) What changes after that window (market closes, flavor sells out, online ordering as the bridge). (3) A specific, direct CTA — jackscrackers.com, the market date, the last Saturday.
+The urgency is real because the timing is real. Never manufacture urgency with "limited time only" language that isn't true.
+Example approach: "The market season closes at the end of October. If you've been meaning to stock up — Lavender Rosemary, Chocolate Graham, Buttermilk Bacon — the next few Saturdays are your window. After that, it's jackscrackers.com until spring."
+
+---
+WHAT NOT TO WRITE — PATTERN FAILURES
+---
+Avoid these patterns regardless of post type:
+- Opening with "We're so excited to..." or "We're thrilled to..." — always off-brand
+- Listing all 10 flavors in sequence — never do this in any post
+- Generic seasonal hooks not grounded in a specific date or event ("Fall is here! Perfect snack season!")
+- Price justification as a defensive crouch ("We know it's a little pricey, but...")
+- Fomo-only CTAs not grounded in real scarcity ("Order NOW before it's gone!!!")
+- Any post that could have been written by any food brand — if it doesn't require knowing Jack's specific flavors, batch size, or NH location, rewrite it`;
 
 const POST_TYPE_LABELS = {
   product_showcase: "Product Showcase",
@@ -582,7 +636,6 @@ function renderMarkets() {
 function addMarket() {
   markets.push({ name: "", schedule: "", hours: "", location: "" });
   renderMarkets();
-  // Focus first empty input in new row
   const rows = document.querySelectorAll(".market-row");
   const last = rows[rows.length - 1];
   if (last) last.querySelector("input").focus();
@@ -664,13 +717,14 @@ For each post return a JSON array with ${count} objects. Each object must have:
 - "postType": short label (e.g. "Product Showcase")
 - "platform": "Facebook + Instagram", "Facebook", or "Instagram"
 - "photoCategory": which category from the catalog to use
-- "caption": full post caption, 3-5 sentences, in the quiet confident brand voice. No emojis. No exclamation marks unless one is genuinely earned. Specific sensory detail over empty praise. Close with "Jack's Crackers: Really, Truly Hand Made." when it fits naturally — never invent or vary the tagline.
+- "caption": full post caption, 3-5 sentences, following the content framework for that post type. No emojis. No exclamation marks unless one is genuinely earned. Specific sensory detail over empty praise. Close with "Jack's Crackers: Really, Truly Hand Made." when it fits naturally — never invent or vary the tagline.
 - "hashtags": 8-12 hashtags as a single string, no emojis in hashtags
 - "photoTip": one specific tip on which kind of photo to pick from that category
 
-Vary tone and angle. Don't repeat opening words. Space out post types so the batch feels varied.
+Vary tone and angle across the batch. Don't repeat opening words across posts. Space out post types so the batch feels varied.
 For Market Day posts: mention one or two specific flavors at most — never list all 10 flavors in sequence.
 Never close a post with both "Good crackers, small batches." and the tagline — use one or the other, not both.
+Apply the correct content framework for each post type as defined in CONTENT FRAMEWORKS BY POST TYPE above.
 Return ONLY a valid JSON array. No markdown, no explanation.`;
 }
 
@@ -679,7 +733,6 @@ async function callAPI(prompt) {
   const apiKey = document.getElementById("api-key").value.trim();
   if (!apiKey) throw new Error("Please enter your Anthropic API key at the top of the page.");
 
-  // Validate API key contains only safe header characters
   if (/[^\x20-\x7E]/.test(apiKey)) {
     throw new Error("API key contains invalid characters. Please re-paste your key.");
   }
@@ -729,10 +782,9 @@ async function startGenerate() {
   document.getElementById("gen-sub-text").textContent = `Generating ${state.batchSize} posts in Jack's Crackers voice`;
   showScreen("generating");
 
-  // Reset and restart progress bar animation
   const bar = document.getElementById("progress-bar");
   bar.style.animation = "none";
-  bar.offsetHeight; // reflow
+  bar.offsetHeight;
   bar.style.animation = "progress 8s ease-in-out forwards";
 
   try {
